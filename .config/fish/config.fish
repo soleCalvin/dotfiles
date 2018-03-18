@@ -1,5 +1,6 @@
 # change default editor
 set -U EDITOR vim
+set -U VISUAL vim
 
 # Disable greeting
 set fish_greeting ""
