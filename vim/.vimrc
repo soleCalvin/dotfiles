@@ -14,28 +14,32 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'skielbasa/vim-material-monokai'
 
-Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Add the CtrlP Plugin
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+" let g:ctrlp_match_window = 'bottom,order:ttb'
+" let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_working_path_mode = 0
+
 if !has("gui_running")
     set term=xterm-256color
-    " set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
     colorscheme material-monokai
 endif
 
-" Dark Material Theme
-" set background=dark
-" set t_ut=
-let g:airline_theme='materialmonokai'
-
 " Line numbers and status bar
 set number
 set laststatus=2
+set noshowmode
+
+" Leader is comma
+let mapleader = ","
 
 " Enable Syntax highlighting
 if !exists("syntax_on")
@@ -48,6 +52,18 @@ set tabstop=4 		" Width of the tab character
 set autoindent
 set textwidth=100
 set colorcolumn=+1
+set history=100
+
+" Highlighted search
+set hlsearch
+set incsearch
+nnoremap <silent> <leader><space> :nohlsearch<CR>
+
+" Visual autocomplete
+set wildmenu
+
+" Redraw the screen less often
+set lazyredraw
 
 " Disable the stupid beeping
 set visualbell
@@ -79,10 +95,15 @@ nnoremap [r :ALEPreviousWrap<CR>
 autocmd InsertEnter,InsertLeave * set cul!
 
 " Get block cursor
-
-
-" Get block cursor
-let &t_ti.="\e[1 q"
+" let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
+" let &t_te.="\e[0 q"
+
+" Folds
+set foldlevelstart=0
+nnoremap <space> zA 	" Use this command to toggle fold
+set foldmethod=indent
+
+" Select the previously inserted text
+nnoremap gV `[v`]
