@@ -1,3 +1,3 @@
 function gdb
-	command gdb --tui
+	command gdb --tui $argv
 end

@@ -35,6 +35,7 @@ endif
 
 " Line numbers and status bar
 set number
+set relativenumber
 set laststatus=2
 set noshowmode
 
@@ -80,6 +81,8 @@ let g:ycm_global_ycm_extra_conf="~/.vim/bundle/.ycm_extra_conf.py"
 
 " YCM Jump to Command
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" YCM Fixit
+nnoremap <leader>f :YcmCompleter FixIt<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -95,10 +98,10 @@ nnoremap [r :ALEPreviousWrap<CR>
 autocmd InsertEnter,InsertLeave * set cul!
 
 " Get block cursor
-" let &t_ti.="\e[1 q"
+let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
-" let &t_te.="\e[0 q"
+let &t_te.="\e[1 q"
 
 " Folds
 set foldlevelstart=0
@@ -107,3 +110,10 @@ set foldmethod=indent
 
 " Select the previously inserted text
 nnoremap gV `[v`]
+
+" Brighten Lines
+highlight LineNr ctermfg=grey
+highlight CursorLineNr ctermfg=grey
+
+" Add automatic braces
+inoremap {<CR> {<CR>}<ESC>O 
