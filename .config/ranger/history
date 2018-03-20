@@ -14,4 +14,13 @@ shell
 open_with cmd.exe start
 delete
 search given
+colo
+set colorscheme
+colorscheme
+se
+set colorscheme default
+set colorscheme snow
+set colorscheme solarized
+solo
 
+set colorscheme jungle
