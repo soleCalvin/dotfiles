@@ -1,6 +1,17 @@
-
 help delete
-delete
 open_with open
 open_with shell open
 open_with 
+shell echo "hi"
+shell cmd.exe /C start 
+shell open
+shell cmd.exe
+shell cmd.exe /C
+shell cmd.exe start
+shell cmd.exe start $@$
+shell cmd.exe start "$1"
+shell 
+open_with cmd.exe start
+delete
+search given
+

@@ -6,5 +6,5 @@ set -U VISUAL vim
 set fish_greeting ""
 
 # Nice ls colours
-set LS_COLORS 'ow=01;36;40:di=01;36;40:fi=01;32:ln=01;32:*.cpp=01;92'
+set LS_COLORS 'ow=01;96;40:di=01;96;40:fi=00;97;40:ln=00;97;40'
 export LS_COLORS

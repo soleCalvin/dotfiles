@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'skielbasa/vim-material-monokai'
+Plugin 'morhetz/gruvbox'
 
 Plugin 'itchyny/lightline.vim'
 
@@ -26,12 +26,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " let g:ctrlp_switch_buffer = 0
 " let g:ctrlp_working_path_mode = 0
 
-if !has("gui_running")
-    set term=xterm-256color
-    let &t_AB="\e[48;5;%dm"
-    let &t_AF="\e[38;5;%dm"
-    colorscheme material-monokai
-endif
+set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
+set background=dark
+colorscheme gruvbox
 
 " Line numbers and status bar
 set number
