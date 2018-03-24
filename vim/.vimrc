@@ -1,7 +1,7 @@
 " Plugin Management --------------------------------------------------
 set shell=/bin/bash
 set nocompatible
-filetype off
+filetype plugin on
 set exrc
 
 " set the runtime path to include Vundle and initialize
@@ -124,6 +124,7 @@ let mapleader = ","
 " YCM
 nnoremap <leader>jd :YcmCompleter GoTo<CR>		" Jump to Command
 nnoremap <leader>f :YcmCompleter FixIt<CR> 		" FixIt
+nnoremap <leader>gt :YcmCompleter GetType<CR> 	" Get type of variable
 
 " Paste Mode on F12
 nnoremap <silent> <F12> :call Paste_on_off()<CR>

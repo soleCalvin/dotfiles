@@ -1,18 +1,14 @@
 help delete
 open_with open
 open_with shell open
-open_with 
 shell echo "hi"
 shell cmd.exe /C start 
 shell open
 shell cmd.exe
 shell cmd.exe /C
-shell cmd.exe start
 shell cmd.exe start $@$
 shell cmd.exe start "$1"
-shell 
 open_with cmd.exe start
-delete
 search given
 colo
 set colorscheme
@@ -22,5 +18,20 @@ set colorscheme default
 set colorscheme snow
 set colorscheme solarized
 solo
-
 set colorscheme jungle
+search twoD
+shell 
+shell cmd.exe start
+shell unzip
+shell unzip "$1"
+open_with 
+flat 2
+flat 1
+flat
+rename 
+rename COMM486R
+rename SchoolText
+rename School Text
+delete
+shell cmd.exe start "" "$1"
+
