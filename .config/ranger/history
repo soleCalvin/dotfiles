@@ -1,9 +1,6 @@
-help delete
-open_with open
 open_with shell open
 shell echo "hi"
 shell cmd.exe /C start 
-shell open
 shell cmd.exe
 shell cmd.exe /C
 shell cmd.exe start $@$
@@ -22,7 +19,6 @@ set colorscheme jungle
 search twoD
 shell 
 shell cmd.exe start
-shell unzip
 shell unzip "$1"
 open_with 
 flat 2
@@ -32,6 +28,23 @@ rename
 rename COMM486R
 rename SchoolText
 rename School Text
-delete
 shell cmd.exe start "" "$1"
+shell fish -c open
+shell open
+find min
+find int
+find inte
+find documents
+find appd
+find locall
+find le
+find b
+find 
+mkdir src
+unzip
+shell unzip
 
+shell unzip ranger_devicons-master.zip
+delete
+make install
+shell make install
