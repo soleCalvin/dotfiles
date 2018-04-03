@@ -1,23 +1,12 @@
-open_with shell open
-shell echo "hi"
-shell cmd.exe /C start 
-shell cmd.exe
-shell cmd.exe /C
-shell cmd.exe start $@$
-shell cmd.exe start "$1"
-open_with cmd.exe start
-search given
 colo
 set colorscheme
 colorscheme
 se
-set colorscheme default
 set colorscheme snow
 set colorscheme solarized
 solo
 set colorscheme jungle
 search twoD
-shell 
 shell cmd.exe start
 shell unzip "$1"
 open_with 
@@ -30,7 +19,6 @@ rename SchoolText
 rename School Text
 shell cmd.exe start "" "$1"
 shell fish -c open
-shell open
 find min
 find int
 find inte
@@ -43,8 +31,20 @@ find
 mkdir src
 unzip
 shell unzip
-
 shell unzip ranger_devicons-master.zip
-delete
 make install
 shell make install
+set colorscheme default
+find platf
+shell unzip No\ Game\ No\ Life.zip
+mkdir Capstone
+shell cat
+shell unzip lab_heaps.zip
+delete
+search 2 Hour
+search sldkjfdslkjfs
+shell mkdir
+q
+
+shell 
+shell open

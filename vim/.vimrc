@@ -11,31 +11,48 @@ call vundle#begin()
 " BEGIN PLUGIN LIST
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
 
 Plugin 'morhetz/gruvbox'
 
-Plugin 'itchyny/lightline.vim'
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'ctrlpvim/ctrlp.vim'
+
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+Plugin 'roman/golden-ratio'
 " END PLUGIN LIST
 
 call vundle#end()
 filetype plugin indent on
 
-" CtrlP Plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-" let g:ctrlp_match_window = 'bottom,order:ttb'
-" let g:ctrlp_switch_buffer = 0
-" let g:ctrlp_working_path_mode = 0
+" Make airline pretty
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let airline#extensions#tabline#formatter = 'unique_tail'
 
-" Global YCM Config file
-let g:ycm_global_ycm_extra_conf="~/.vim/bundle/.ycm_extra_conf.py"
+" Config file for YCM
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 " Theme Customization ------------------------------------------------
 set termguicolors
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_contrast_light = 'medium'
+" let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_light = 'medium'
 set background=dark
 colorscheme gruvbox
+
+" Disable arrow keys
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
 
 " Misc Convenience Settings ------------------------------------------
 set number
@@ -48,19 +65,23 @@ set tabstop=4 		" Width of the tab character
 set autoindent
 set textwidth=100
 set colorcolumn=+1
+set splitright
 
 " Enable Syntax highlighting
 if !exists("syntax_on")
 	syntax enable
 endif
 
+" netrw Listing Style
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_altv = 1
+
 " Highlighted search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-map N Nzz
-map n nzz
 
 " Visual autocomplete
 set wildmenu
@@ -121,10 +142,11 @@ autocmd BufWritePre * :call TrimWhitespace()
 " Leader is comma
 let mapleader = ","
 
-" YCM
-nnoremap <leader>jd :YcmCompleter GoTo<CR>		" Jump to Command
-nnoremap <leader>f :YcmCompleter FixIt<CR> 		" FixIt
-nnoremap <leader>gt :YcmCompleter GetType<CR> 	" Get type of variable
+" Resizing windows
+nnoremap <silent> <Leader><Left> :vertical resize -5<CR>
+nnoremap <silent> <Leader><Right> :vertical resize +5<CR>
+nnoremap <silent> <Leader><Up> :resize -5<CR>
+nnoremap <silent> <Leader><Down> :resize +5<CR>
 
 " Paste Mode on F12
 nnoremap <silent> <F12> :call Paste_on_off()<CR>
@@ -145,8 +167,22 @@ nnoremap gV `[v`]
 " Add automatic braces
 inoremap {<CR> {<CR>}<ESC>O
 
-" jk exits insert mode
-inoremap jk <Esc>
-
 " Cancel search highlighting
 nnoremap <silent> <leader><space> :nohlsearch<CR>
+
+" Natural movement through long lines
+nnoremap j gj
+nnoremap k gk
+
+" Tagbar
+noremap <leader>b :TagbarToggle<CR>
+
+" Jump to ctags
+nnoremap <Leader>t g<C-]>
+
+" Jump to YCM GoTo
+nnoremap <Leader>g :YcmCompleter GoTo<CR>
+nnoremap <Leader>f :YcmCompleter FixIt<CR>
+
+" Goldenview Window Management
+nnoremap <silent> <Leader>s <Plug>GoldenViewSplit
