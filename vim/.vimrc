@@ -11,8 +11,6 @@ call vundle#begin()
 " BEGIN PLUGIN LIST
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'majutsushi/tagbar'
-
 Plugin 'morhetz/gruvbox'
 
 Plugin 'Valloric/YouCompleteMe'
@@ -23,11 +21,16 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
-Plugin 'roman/golden-ratio'
+Plugin 'scrooloose/nerdtree'
 " END PLUGIN LIST
 
 call vundle#end()
-filetype plugin indent on
+
+" GUI settings
+if has("gui_running")
+	set guifont=Hack\ Nerd\ Font\ Mono\ 10.5
+	set guioptions=a
+endif
 
 " Make airline pretty
 let g:airline_powerline_fonts = 1
@@ -38,11 +41,14 @@ let airline#extensions#tabline#formatter = 'unique_tail'
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 " Theme Customization ------------------------------------------------
-set termguicolors
-" let g:gruvbox_contrast_dark = 'hard'
+" set t_8f= "\<Esc>[38:2:%lu:%lu:%lum"        " set foreground color
+" set t_8b= "\<Esc>[48:2:%lu:%lu:%lum"        " set background color
+colorscheme gruvbox
+" set t_Co=256                         " Enable 256 colors
+" set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+" let g:gruvbox_contrast_dark = 'light'
 " let g:gruvbox_contrast_light = 'medium'
 set background=dark
-colorscheme gruvbox
 
 " Disable arrow keys
 nnoremap <Up> <nop>
@@ -53,6 +59,9 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
+
+" Standard Location for Swaps
+set directory=~/.vim/swap//
 
 " Misc Convenience Settings ------------------------------------------
 set number
@@ -66,6 +75,7 @@ set autoindent
 set textwidth=100
 set colorcolumn=+1
 set splitright
+set scrolloff=10 	" Leave 10 lines at top/bottom
 
 " Enable Syntax highlighting
 if !exists("syntax_on")
@@ -88,9 +98,6 @@ set wildmenu
 
 " Redraw the screen less often
 set lazyredraw
-
-" Disable the stupid beeping
-set visualbell
 
 " ==== disable mouse
 set mouse=c
@@ -117,7 +124,7 @@ highlight CursorLineNr ctermfg=grey
 set nohidden
 
 "{{{ Paste Toggle
-let paste_mode = 0 " 0 = normal, 1 = paste
+" let paste_mode = 0 " 0 = normal, 1 = paste
 
 func! Paste_on_off()
 	if g:paste_mode == 0
@@ -183,6 +190,3 @@ nnoremap <Leader>t g<C-]>
 " Jump to YCM GoTo
 nnoremap <Leader>g :YcmCompleter GoTo<CR>
 nnoremap <Leader>f :YcmCompleter FixIt<CR>
-
-" Goldenview Window Management
-nnoremap <silent> <Leader>s <Plug>GoldenViewSplit
