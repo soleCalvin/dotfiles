@@ -1,9 +1,9 @@
 function ranger
 	if test (count $RANGER_LEVEL) -eq 0
 		if count $argv > /dev/null
-			/usr/local/bin/ranger $argv
+			/usr/sbin/ranger $argv
 		else
-			/usr/local/bin/ranger
+			/usr/sbin/ranger
 		end
 	else
 		exit

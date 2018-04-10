@@ -25,8 +25,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return split h exec st -cd
-bindsym $mod+Shift+Return split v exec st
+bindsym $mod+Return split h exec st -e ~/.scripts/start_fish.sh
+bindsym $mod+Shift+Return split v exec st -e ~/.scripts/start_fish.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -35,8 +35,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run
 
 # split vertically
-bindsym $mod+v split horizontal exec ~/.scripts/start_gvim.sh
-bindsym $mod+Shift+v split vertical exec ~/.scripts/start_gvim.sh
+# bindsym $mod+v split horizontal exec ~/.scripts/start_nvim.sh
+#bindsym $mod+Shift+v split vertical exec ~/.scripts/start_nvim.sh
 default_orientation horizontal
 
 # Don't follow mouse focus

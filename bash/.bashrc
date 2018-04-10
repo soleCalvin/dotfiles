@@ -1,5 +1,6 @@
 export PULSE_SERVER=tcp:localhost
 export DISPLAY=:0
+cd ~
 
 # If not running interactively, don't do anything
 # [[ $- != *i* ]] && return

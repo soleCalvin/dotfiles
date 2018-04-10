@@ -1,5 +1,3 @@
-colo
-set colorscheme
 colorscheme
 se
 set colorscheme snow
@@ -40,11 +38,13 @@ shell unzip No\ Game\ No\ Life.zip
 mkdir Capstone
 shell cat
 shell unzip lab_heaps.zip
-delete
 search 2 Hour
 search sldkjfdslkjfs
 shell mkdir
 q
-
 shell 
 shell open
+delete
+version
+echo EDITOR
+
